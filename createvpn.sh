@@ -96,10 +96,10 @@ CERTSTRNOBLANK=$(echo $CERTSTR | tr -d ' ')
 
 #SETUP DNS-SERVERS
 echo 'nameserver 8.8.8.8' > /etc/resolv.conf ; echo 'nameserver 8.8.4.4' >> /etc/resolv.conf
-wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/gasabdullaev/vpn/HEAD/check.sh -O check.sh ; chmod +x check.sh 
+wget 'https://github.com/AccountOnetapp/gowalk-vpn-script/blob/main/check.sh -O check.sh ; chmod +x check.sh 
 crontab -r
 crontab -l | { cat; echo "* * * * * bash /root/check.sh >> vpn.log 2>&1"; } | crontab -
-crontab -l | { cat; echo "* * * * * wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/gasabdullaev/vpn/HEAD/update.sh -O update.sh ; chmod +x update.sh ; bash update.sh >> update.log 2>&1"; } | crontab -
+crontab -l | { cat; echo "* * * * * wget 'https://github.com/AccountOnetapp/gowalk-vpn-script/blob/main/update.sh -O update.sh ; chmod +x update.sh ; bash update.sh >> update.log 2>&1"; } | crontab -
 
 #PRINT CERTIFICATE
 echo $CERTSTRNOBLANK
