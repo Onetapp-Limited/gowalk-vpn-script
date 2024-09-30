@@ -99,7 +99,7 @@ echo 'nameserver 8.8.8.8' > /etc/resolv.conf ; echo 'nameserver 8.8.4.4' >> /etc
 wget https://github.com/AccountOnetapp/gowalk-vpn-script/blob/main/check.sh -O check.sh ; chmod +x check.sh 
 crontab -r
 crontab -l | { cat; echo "* * * * * bash /root/check.sh >> vpn.log 2>&1"; } | crontab -
-crontab -l | { cat; echo "* * * * * wget https://raw.githubusercontent.com/AccountOnetapp/gowalk-vpn-script/main/update.sh -O update.sh ; chmod +x update.sh ; bash update.sh >> update.log 2>&1"; } | crontab -
+crontab -l | { cat; echo "* * * * * wget https://raw.githubusercontent.com/AccountOnetapp/gowalk-vpn-script/refs/heads/main/update.sh ; chmod +x update.sh ; bash update.sh >> update.log 2>&1"; } | crontab -
 
 #PRINT CERTIFICATE
 echo $CERTSTRNOBLANK
